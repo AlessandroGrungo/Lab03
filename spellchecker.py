@@ -5,10 +5,36 @@ import multiDictionary as md
 class SpellChecker:
 
     def __init__(self):
-        pass
+        self.multiDizionario = md.MultiDictionary()
 
     def handleSentence(self, txtIn, language):
-        pass
+        print('ricerca con contains---------------------------------------------')
+        t1 = time.time()
+        words = txtIn.split()
+        parole = self.multiDizionario.searchWord(words, language)
+        for p in parole:
+            if not p.corretta:
+                print(p)
+        t2 = time.time()
+        print("Time " + str(t2 - t1))
+        print('ricerca linare---------------------------------------------------')
+        t1 = time.time()
+        words = txtIn.split()
+        parole = self.multiDizionario.searchWord(words, language)
+        for p in parole:
+            if not p.corretta:
+                print(p)
+        t2 = time.time()
+        print("Time " + str(t2 - t1))
+        print('ricerca dicotomica---------------------------------------------------')
+        t1 = time.time()
+        words = txtIn.split()
+        parole = self.multiDizionario.searchWord(words, language)
+        for p in parole:
+            if not p.corretta:
+                print(p)
+        t2 = time.time()
+        print("Time " + str(t2 - t1))
 
     def printMenu(self):
         print("______________________________\n" +
@@ -20,7 +46,3 @@ class SpellChecker:
               "3. Spagnolo\n" +
               "4. Exit\n" +
               "______________________________\n")
-
-
-def replaceChars(text):
-    pass
